@@ -55,6 +55,7 @@ class GiphyGet {
     TabTopBuilder? tapTopBuilder,
     TabBottomBuilder? tabBottomBuilder,
     SearchAppBarBuilder? searchAppBarBuilder,
+    double width,
   }) {
     if (apiKey == "") {
       throw Exception("apiKey must be not null or not empty");
@@ -62,6 +63,7 @@ class GiphyGet {
 
     return showModalBottomSheet<GiphyGif>(
       clipBehavior: Clip.antiAlias,
+      constraints: BoxConstraints(maxWidth: width),
       shape: Theme.of(context).bottomSheetTheme.shape ??
           RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
